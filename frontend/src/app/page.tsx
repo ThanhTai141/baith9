@@ -6,7 +6,7 @@ export default function Home() {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    const apiUrl = "http://localhost:5000"; // hardcode cho test
+    const apiUrl = "https://baith9.onrender.com"; // hardcode cho test
     axios.get(`${apiUrl}/foods`)
       .then(res => setFoods(res.data))
       .catch(err => console.error(err));
