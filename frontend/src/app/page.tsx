@@ -6,7 +6,7 @@ export default function Home() {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    const apiUrl = "http://localhost:3001"; // hardcode cho test
+    const apiUrl = "http://localhost:5000"; // hardcode cho test
     axios.get(`${apiUrl}/foods`)
       .then(res => setFoods(res.data))
       .catch(err => console.error(err));
@@ -23,7 +23,7 @@ export default function Home() {
               className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-5 flex flex-col"
             >
               <img 
-                src={food.image || "https://via.placeholder.com/300"} 
+                src={food.imageUrl || "https://via.placeholder.com/300"} 
                 alt={food.name} 
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
