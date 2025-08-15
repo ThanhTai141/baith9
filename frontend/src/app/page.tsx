@@ -14,7 +14,7 @@ export default function Home() {
   const [foods, setFoods] = useState<Food[]>([]);
 
   useEffect(() => {
-    const apiUrl = "https://baith9.onrender.com"; // hardcode cho test
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     axios.get(`${apiUrl}/foods`)
       .then(res => setFoods(res.data))
       .catch(err => console.error(err));
