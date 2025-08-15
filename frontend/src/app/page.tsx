@@ -2,8 +2,16 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+interface Food {
+  _id: string; // MongoDB uses _id as the unique identifier
+  name: string;
+  price: number;
+  description: string;
+  imageUrl: string;
+}
+
 export default function Home() {
-  const [foods, setFoods] = useState([]);
+  const [foods, setFoods] = useState<Food[]>([]);
 
   useEffect(() => {
     const apiUrl = "https://baith9.onrender.com"; // hardcode cho test
@@ -17,9 +25,9 @@ export default function Home() {
       <div className="max-w-6xl mx-auto px-4">
         <h1 className="text-3xl font-bold text-gray-800 mb-8">🍔 GrabFood Clone</h1>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {foods.map((food: any) => (
+          {foods.map((food) => (
             <div 
-              key={food.id} 
+              key={food._id} 
               className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-5 flex flex-col"
             >
               <img 
